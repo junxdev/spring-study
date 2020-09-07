@@ -18,10 +18,10 @@
 		</div>
 		<div class="row" id="menu">
 			<div class="col-md-12 text-uppercase text-center bg-info">
-				<a href="#">menu1</a>
-				<a href="#">menu2</a>
-				<a href="#">menu3</a>
-				<a href="#">menu4</a>
+				<a href="/spring02/index.bit">home</a>
+				<a href="/spring02/emp/list.bit">emp</a>
+				<a href="/spring02/dept/dept.bit">dept</a>
+				<a href="/spring02/login.bit">login</a>
 			</div>
 		</div>
 		<div class="row" id="content">
