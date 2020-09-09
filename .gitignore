@@ -3,3 +3,4 @@ Servers/
 *.classpath
 spring02/.settings/
 spring02/target/
+/.recommenders/

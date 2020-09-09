@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="handlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="urlMap">
+			<props>
+				<prop key="/index.bit">index</prop>
+				<prop key="/dept/list.bit">deptList</prop>
+				<prop key="/dept/add.bit">deptAdd</prop>
+				<prop key="/dept/insert.bit">deptInsert</prop>
+				<prop key="/dept/detail.bit">deptDetail</prop>
+				<prop key="/dept/update.bit">deptUpdate</prop>
+				<prop key="/dept/delete.bit">deptDelete</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="index" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="index"></property>
+	</bean>
+	<bean id="deptList" class="com.bit.framework.dept.controller.ListController">
+		<property name="dao" ref="deptDAO"></property>
+	</bean>
+	<bean id="deptAdd" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="dept/add"></property>
+	</bean>
+	<bean id="deptInsert" class="com.bit.framework.dept.controller.InsertController">
+		<property name="supportedMethods" value="POST"></property>
+		<property name="commandClass" value="com.bit.framework.dept.model.entity.DeptVO"></property>
+		<property name="dao" ref="deptDAO"></property>
+	</bean>
+	<bean id="deptDetail" class="com.bit.framework.dept.controller.DetailController">
+		<property name="dao" ref="deptDAO"></property>
+	</bean>
+	<bean id="deptUpdate" class="com.bit.framework.dept.controller.UpdateController">
+		<property name="supportedMethods" value="POST"></property>
+		<property name="commandClass" value="com.bit.framework.dept.model.entity.DeptVO"></property>
+		<property name="dao" ref="deptDAO"></property>
+	</bean>
+	<bean id="deptDelete" class="com.bit.framework.dept.controller.DeleteController">
+		<property name="dao" ref="deptDAO"></property>
+	</bean>
+	
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+</beans>
